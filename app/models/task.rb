@@ -4,7 +4,8 @@ class Task
   field :name, :type => String
   field :goals, :type => Integer
   def attempt_goals
-  	self.goals.times do
+  	remaining = self.goals - self.accomplishments.count
+  	remaining.times do
   		self.delay.attempt_goal
   	end
   	puts 'attempted goals'
