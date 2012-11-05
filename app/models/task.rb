@@ -5,7 +5,7 @@ class Task
   field :goals, :type => Integer
   def attempt_goals
   	self.goals.times do
-  		self.attempt_goal
+  		self.delay.attempt_goal
   	end
   	puts 'attempted goals'
   end
@@ -15,14 +15,17 @@ class Task
   	acc = self.accomplishments.new
   	acc.arbitrary_array = []
   	arbitrary_number.times do 
-  		acc.arbitrary_array.push(Random.rand(arbitrary_number))
+  		acc.delay.attempt_array
+  	end
+  	arbitrary_number.times do 
+  		acc.delay.attempt_string
   	end
   	acc.save
   	puts 'attempted a goal'
   end
   def self.attempt_tasks
   	Task.all.each do |ts|
-  		ts.attempt_goals
+  		ts.delay.attempt_goals
   	end
   	puts 'attempted all tasks'
   end
