@@ -12,7 +12,7 @@ class Task
   end
   def attempt_goal
   	counter = 0
-  	arbitrary_number = 200
+  	arbitrary_number = 5
   	acc = self.accomplishments.new
   	acc.arbitrary_array = []
   	arbitrary_number.times do 
