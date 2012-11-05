@@ -9,7 +9,24 @@
   <b>Goals:</b>
   <%= @task.goals %>
 </p>
-
+<p>
+  <b>Accomplishments:</b>
+  <%= @task.accomplishments.count %>
+</p>
+<table>
+  <tr>
+    <th>Array</th>
+    <th>String</th>
+    <th>id</th>
+  </tr>
+<% @tasks.accomplishments.each do |acc| %>
+  <tr>
+    <td><%= acc.arbitrary_array.length %></td>
+    <td><%= acc.arbitrary_string %></td>
+    <td><%= acc.id %></td>å
+  </tr>
+<% end %>
+</table>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
