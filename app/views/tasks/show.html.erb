@@ -12,6 +12,10 @@
 <p>
   <b>Accomplishments:</b>
   <%= @task.accomplishments.count %>
+  <b>Where string != nil:</b>
+  <%= @task.accomplishments.where(:arbitrary_string.ne => nil).count %>
+  <b>Where array != empty:</b>
+  <%= @task.accomplishments.where(:arbitrary_array.ne => []).count %>
 </p>
 <table>
   <tr>
