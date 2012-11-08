@@ -24,10 +24,10 @@ class Task
   	acc = self.accomplishments.new
   	acc.arbitrary_array = []
   	arbitrary_number.times do 
-  		acc.delay.attempt_array
+  		acc.attempt_array
   	end
   	arbitrary_number.times do 
-  		acc.delay.attempt_string
+  		acc.attempt_string
   	end
   	acc.save
   	puts 'attempted a goal'

@@ -3,11 +3,17 @@ class Accomplishment
   belongs_to :task
   field :arbitrary_array, :type => Array
   field :arbitrary_string, :type => String
+  def self.when_to_run
+    x = 0.5
+    x = x * Delayed::Job.count
+    x.seconds.from_now
+  end
   def attempt_array
   	self.arbitrary_array.push(self.arbitrary_array.length)
   	self.save
   	puts 'attempted a string'
   end
+  handle_asynchronously :attempt_array, :run_at => Proc.new { when_to_run }
   def attempt_string
   	number = self.arbitrary_string.to_i
   	number += 1
@@ -15,4 +21,5 @@ class Accomplishment
   	self.save
   	puts 'attempted a string'
   end
+  handle_asynchronously :attempt_string, :run_at => Proc.new { when_to_run }
 end
