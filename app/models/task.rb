@@ -3,9 +3,9 @@ class Task
   has_many :accomplishments
   field :name, :type => String
   field :goals, :type => Integer
-  
+
   def self.when_to_run
-    x = 7
+    x = 2
     x = x * Delayed::Job.count
     x.seconds.from_now
   end
