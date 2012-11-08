@@ -5,7 +5,7 @@ class Task
   field :goals, :type => Integer
 
   def self.when_to_run
-    x = 2
+    x = 0.5
     x = x * Delayed::Job.count
     x.seconds.from_now
   end
