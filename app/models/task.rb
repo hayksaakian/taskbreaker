@@ -3,13 +3,21 @@ class Task
   has_many :accomplishments
   field :name, :type => String
   field :goals, :type => Integer
+  
+  def self.when_to_run
+    x = 7
+    x = x * Delayed::Job.count
+    x.seconds.from_now
+  end
+
   def attempt_goals
   	remaining = self.goals - self.accomplishments.count
   	remaining.times do
-  		self.delay.attempt_goal
+  		self.attempt_goal
   	end
   	puts 'attempted goals'
   end
+
   def attempt_goal
   	counter = 0
   	arbitrary_number = 10
@@ -24,6 +32,8 @@ class Task
   	acc.save
   	puts 'attempted a goal'
   end
+  handle_asynchronously :attempt_goal, :run_at => Proc.new { when_to_run }
+
   def self.attempt_tasks
   	Task.all.each do |ts|
   		ts.delay.attempt_goals
