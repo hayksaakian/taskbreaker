@@ -13,9 +13,8 @@
   <b>Accomplishments:</b>
   <%= @task.accomplishments.count %>
   <b>Where string != nil:</b>
-  <%= @task.accomplishments.where(:arbitrary_string.ne => nil).count %>
+  <%= @task.accomplishments.where('arbitrary_string is not null').count %>
   <b>Where array != empty:</b>
-  <%= @task.accomplishments.where(:arbitrary_array.ne => []).count %>
 </p>
 <table>
   <tr>
@@ -27,7 +26,7 @@
   <tr>
     <td><%= acc.arbitrary_array.length %></td>
     <td><%= acc.arbitrary_string %></td>
-    <td><%= acc.id %></td>å
+    <td><%= acc.id %></td>
   </tr>
 <% end %>
 </table>
