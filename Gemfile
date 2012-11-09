@@ -4,6 +4,8 @@ gem 'rails', '3.1.0'
 
 gem "bcrypt-ruby", :require => "bcrypt"
 
+gem 'pg'
+
 gem "mongoid", "~> 2.4.0"
 gem "bson_ext", "1.6.2"
 gem "mongo"

@@ -20,7 +20,7 @@ class Task
 
   def attempt_goal
   	counter = 0
-  	arbitrary_number = 10
+  	arbitrary_number = 3
   	acc = self.accomplishments.new
   	acc.arbitrary_array = []
   	arbitrary_number.times do 
@@ -35,7 +35,7 @@ class Task
   handle_asynchronously :attempt_goal, :run_at => Proc.new { when_to_run }
 
   def self.attempt_tasks
-  	Task.all.each do |ts|
+  	Task.find_each do |ts|
   		ts.delay.attempt_goals
   	end
   	puts 'attempted all tasks'
