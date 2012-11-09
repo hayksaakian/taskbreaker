@@ -1,8 +1,8 @@
-class Task
-  include Mongoid::Document
+class Task < ActiveRecord::Base
+#   include Mongoid::Document
   has_many :accomplishments
-  field :name, :type => String
-  field :goals, :type => Integer
+#   field :name, :type => String
+#   field :goals, :type => Integer
 
   def self.when_to_run
     x = 0.5
@@ -21,7 +21,7 @@ class Task
   def attempt_goal
   	counter = 0
   	arbitrary_number = 3
-  	acc = self.accomplishments.new
+  	acc = self.accomplishments.create!
   	acc.arbitrary_array = []
   	arbitrary_number.times do 
   		acc.attempt_array
