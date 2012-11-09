@@ -4,7 +4,7 @@ class Accomplishment
   field :arbitrary_array, :type => Array
   field :arbitrary_string, :type => String
   def self.when_to_run
-    x = 0.07
+    x = 0.04
     x = x * Delayed::Job.count
     x.seconds.from_now
   end
