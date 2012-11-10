@@ -12,9 +12,10 @@
 <p>
   <b>Accomplishments:</b>
   <%= @task.accomplishments.count %>
-  <b>Where string != nil:</b>
-  <%= @task.accomplishments.where('arbitrary_string is not null').count %>
-  <b>Where array != empty:</b>
+  <b>Where string != 5 :</b>
+  <%= @task.accomplishments.where(:arbitrary_string.ne => '5').count %>
+  <b>Where array != 5 :</b>
+  <%= @task.accomplishments.where(:arbitrary_array.ne => [0, 1, 2, 3, 4]).count %>
 </p>
 <table>
   <tr>

@@ -4,25 +4,26 @@ gem 'rails', '3.1.0'
 
 gem "bcrypt-ruby", :require => "bcrypt"
 
-gem 'pg'
+# gem 'pg'
 
-# gem "mongoid", "~> 2.4.0"
+gem "mongoid", "~> 2.4.0"
 gem "bson_ext", "1.6.2"
-# gem "mongo"
+gem "mongo"
+gem 'mongoid-locker', '~> 0.2'
 
 # gem "will_paginate_mongoid", "~> 1.0.0"
-gem 'will_paginate', '~> 3.0.3'
-gem "bootstrap-will_paginate"
+# gem 'will_paginate', '~> 3.0.3'
+# gem "bootstrap-will_paginate"
 
-gem "carrierwave"
+# gem "carrierwave"
 # gem "carrierwave-mongoid"
 
-gem 'imgkit'
-gem "nokogiri"
-
+# gem 'imgkit'
+# gem "nokogiri"
+ 
 gem "delayed_job", "~> 3.0.2"
-gem "delayed_job_active_record"
-# gem "delayed_job_mongoid", "~> 1.0.8"
+# gem "delayed_job_active_record"
+gem "delayed_job_mongoid", "~> 1.0.8"
 
 gem 's3'
 gem 'fog'
